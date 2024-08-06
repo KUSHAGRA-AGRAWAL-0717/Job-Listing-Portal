@@ -1,21 +1,21 @@
-import "./job.css"
-import React, { useState } from 'react';
+import "./job.css";
+import React, { useState } from "react";
 
 const Page = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    linkedIn: '',
-    github: '',
-    objective: '',
-    summary: '',
-    workExperience: '',
-    education: '',
-    skills: '',
-    projects: '',
-    certifications: '',
-    references: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    linkedIn: "",
+    github: "",
+    objective: "",
+    summary: "",
+    workExperience: "",
+    education: "",
+    skills: "",
+    projects: "",
+    certifications: "",
+    references: "",
   });
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ const Page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    console.log("Form Data:", formData);
   };
 
   return (
@@ -37,59 +37,108 @@ const Page = () => {
         <h1>Job Application</h1>
       </header>
       <h2>Job Application Form</h2>
-      <div>
-        <label>Full Name:</label>
-        <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
+      <div className="main">
+        <div className="first">
+          <div>
+            <label>Full Name:</label>
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Phone:</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Professional Summary:</label>
+            <textarea
+              name="summary"
+              value={formData.summary}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Work Experience:</label>
+            <textarea
+              name="workExperience"
+              value={formData.workExperience}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Education:</label>
+            <textarea
+              name="education"
+              value={formData.education}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+        <div className="second">
+          <div>
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>LinkedIn Profile:</label>
+            <input
+              type="url"
+              name="linkedIn"
+              value={formData.linkedIn}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Skills:</label>
+            <textarea
+              name="skills"
+              value={formData.skills}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Projects:</label>
+            <textarea
+              name="projects"
+              value={formData.projects}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Certifications and Awards:</label>
+            <textarea
+              name="certifications"
+              value={formData.certifications}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
       </div>
-      <div>
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Phone:</label>
-        <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>LinkedIn Profile:</label>
-        <input type="url" name="linkedIn" value={formData.linkedIn} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>GitHub/Portfolio:</label>
-        <input type="url" name="github" value={formData.github} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Objective:</label>
-        <textarea name="objective" value={formData.objective} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Professional Summary:</label>
-        <textarea name="summary" value={formData.summary} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Work Experience:</label>
-        <textarea name="workExperience" value={formData.workExperience} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Education:</label>
-        <textarea name="education" value={formData.education} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Skills:</label>
-        <textarea name="skills" value={formData.skills} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Projects:</label>
-        <textarea name="projects" value={formData.projects} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Certifications and Awards:</label>
-        <textarea name="certifications" value={formData.certifications} onChange={handleChange} />
-      </div>
-      <div>
-        <label>References:</label>
-        <textarea name="references" value={formData.references} onChange={handleChange} />
-      </div>
-      <button type="submit" style={{marginBottom: '12px'}}>Submit Application</button>
+      <button type="submit" style={{ marginBottom: "12px" }}>
+        Submit Application
+      </button>
     </form>
   );
 };

@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import JobApplicationForm from '././pages/JobApplicationForm';
+// import JobApplicationForm from '././pages/JobApplicationForm';
+import { Applicants } from './pages/Applicants';
 
 function App() {
   return (
-    <div className="App" style={{background: 'linear-gradient(60deg,rgb(255, 49, 49),rgb(100, 100, 255))'}}>
+    <div className="App">
       <main>
-        <JobApplicationForm />
+        {/* <JobApplicationForm/> */}
+      <Applicants/>
       </main>
     </div>
   );
