@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
-// import JobApplicationForm from '././pages/JobApplicationForm';
-import { Applicants } from './pages/Applicants';
+import { Toaster } from "react-hot-toast";
+import { Route, Routes } from 'react-router-dom'; // Import Route and Routes
+import { Applicants } from './pages/Applicants'; 
+import JobApplicationForm from "./pages/JobApplicationForm";
 
 function App() {
   return (
     <div className="App">
+      <Toaster />
       <main>
-        {/* <JobApplicationForm/> */}
-      <Applicants/>
+        <Routes>
+          <Route path="/apply" element={<JobApplicationForm />} />
+          <Route path="/applicants" element={<Applicants />} />
+        </Routes>
       </main>
     </div>
   );

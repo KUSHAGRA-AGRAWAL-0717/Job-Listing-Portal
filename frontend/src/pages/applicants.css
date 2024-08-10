@@ -1,25 +1,47 @@
-.head{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 20px 0px;
+.head {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin: 20px 0px;
  }
- .item{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 12px 0px;
-    border: 1px dashed pink;
-    padding: 12px;
-    border-radius: 8px;
+ 
+ .item {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin: 12px 0px;
+   border: 3px dashed pink;
+   padding: 12px;
+   border-radius: 8px;
+   transition: background-color 0.3s ease;
  }
- .status{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+ 
+ .item.pending {
+   background-color: antiquewhite;
  }
-.container{
-    background-color: antiquewhite;
-    height: 100vh;
-    padding: 20px;
-}
+ 
+ .item.reviewed {
+   background-color: lightgreen;
+ }
+ 
+ .item.rejected {
+   background-color: lightcoral;
+ }
+ 
+ .status {
+   display: flex;
+   flex-direction: row;
+   gap: 5px;
+ }
+ 
+ .status button {
+   height: 30px;
+   width: 40px;
+ }
+ 
+ .container {
+   background-color: antiquewhite;
+   height: 100vh;
+   padding: 20px;
+ }
+ 

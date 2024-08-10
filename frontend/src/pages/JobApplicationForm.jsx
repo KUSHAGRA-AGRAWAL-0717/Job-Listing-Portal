@@ -1,12 +1,15 @@
-import "./job.css";
 import React, { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import "./job.css";
 
 const Page = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    linkedIn: "",
+    jobTitle: "", 
     github: "",
     objective: "",
     summary: "",
@@ -18,6 +21,8 @@ const Page = () => {
     references: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -26,9 +31,20 @@ const Page = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    try {
+      const response = await axios.post("http://localhost:5500/applicant/apply", formData);
+      if (response.data.success) {
+        toast.success("Application submitted successfully!");
+        navigate("/success"); 
+      } else {
+        toast.error("Failed to submit the application. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+      console.error("There was an error submitting the form!", error);
+    }
   };
 
   return (
@@ -99,11 +115,11 @@ const Page = () => {
             />
           </div>
           <div>
-            <label>LinkedIn Profile:</label>
+            <label>Job Title:</label>
             <input
-              type="url"
-              name="linkedIn"
-              value={formData.linkedIn}
+              type="text"
+              name="jobTitle" 
+              value={formData.jobTitle} 
               onChange={handleChange}
               required
             />
